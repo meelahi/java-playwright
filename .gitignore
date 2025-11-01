@@ -1,0 +1,33 @@
+# IDE / Editor configs
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
+
+# Build output
+target/
+bin/
+doc/
+test-output/
+allure-results/
+
+# Logs & reports
+*.log
+*.tmp
+*.swp
+*.bak
+.scannerwork/
+.scannerwork/report-task.txt
+.scannerwork/.sonar_lock
+lighthouse/
+
+# Node (if using Playwright helpers via npm)
+node_modules/
+package*.json
+
+# OS / Misc
+.DS_Store
+Thumbs.db
+.env
