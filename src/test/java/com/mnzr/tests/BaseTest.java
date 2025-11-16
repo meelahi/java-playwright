@@ -1,4 +1,4 @@
-package com.mnzr.tests.base;
+package com.mnzr.tests;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

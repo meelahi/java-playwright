@@ -5,7 +5,6 @@ import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.mnzr.pages.SwagLabs;
-import com.mnzr.tests.base.BaseTest;
 
 public class SwagLabsTest extends BaseTest {
 	@Test()
