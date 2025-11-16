@@ -1,6 +1,7 @@
 package com.mnzr.factory;
 
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
@@ -34,7 +35,8 @@ public class PlaywrightFactory {
 
             BrowserType.LaunchOptions options = new BrowserType.LaunchOptions()
                     .setHeadless(headless)
-                    .setSlowMo(slowMo);
+                    .setSlowMo(slowMo)
+                    .setArgs(Arrays.asList("--start-maximized"));
 
             Browser browser;
             switch (browserName.toLowerCase()) {
@@ -52,11 +54,11 @@ public class PlaywrightFactory {
             Browser.NewContextOptions contextOptions = new Browser.NewContextOptions()
                     .setViewportSize(2560, 1440);
 
-            String videoDir = ConfigReader.get("videos.dir");
-            if (videoDir != null && !videoDir.isEmpty()) {
-                contextOptions.setRecordVideoDir(Paths.get(videoDir));
-            }
-
+			String videoDir = ConfigReader.get("videos.dir");
+			if (videoDir != null && !videoDir.isEmpty()) {
+				contextOptions.setRecordVideoDir(Paths.get(videoDir));
+			}
+            
             BrowserContext context = browser.newContext(contextOptions);
             contextThread.set(context);
 

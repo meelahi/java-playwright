@@ -27,7 +27,6 @@ public abstract class BaseTest {
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
 		PlaywrightFactory.cleanup();
-		Log.info("Closing context and browser for current test");
 	}
 
 	@AfterSuite(alwaysRun = true)
