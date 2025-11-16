@@ -11,6 +11,9 @@ public class SwagLabs extends BasePage {
 
 	public SwagLabs(Page page) {
 		super(page);
+		String baseUrl = "https://www.saucedemo.com/";
+		Log.info("SwagLabs URL:: " + baseUrl);
+		page.navigate(baseUrl);
 		Log.info("Swag Labs page loaded");
 	}
 	
@@ -57,6 +60,7 @@ public class SwagLabs extends BasePage {
 	}
 	
 	public void Login(String username, String password) {
+		info("Logging in with: " + username);
 		enterUserName(username);
 		enterPassword(password);
 		clickLogin();
