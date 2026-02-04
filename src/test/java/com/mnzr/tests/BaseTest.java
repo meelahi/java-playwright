@@ -37,12 +37,13 @@ public abstract class BaseTest {
 
 	protected void takeScreenshot(String name) {
 		try {
-			byte[] bytes = page.screenshot(
+			page.screenshot(
 					new Page.ScreenshotOptions()
 							.setFullPage(true)
 							.setPath(getScreenshotPath(name)));
 			Log.info("Screenshot saved: " + getScreenshotPath(name));
 		} catch (Exception e) {
+			e.printStackTrace();
 			Log.error("Failed to take screenshot: " + e.getMessage());
 		}
 	}
@@ -53,6 +54,7 @@ public abstract class BaseTest {
 			dir = "target/screenshots";
 		Path folder = Paths.get(dir);
 		Files.createDirectories(folder);
+		name = name.replaceAll("[\\\\/:*?\"<>|]", "_");
 		return folder.resolve(name + "_" + System.currentTimeMillis() + ".png");
 	}
 }
